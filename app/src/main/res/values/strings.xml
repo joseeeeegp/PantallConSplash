@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Pantalla_animada</string>
+    <string name="Version">Version 0.0</string>
+    <string name="Copyright">Copyright © 2019</string>
+    <string name="All_rights">All Rights Reserved</string>
+    <string name="title_activity_tras_splash">TrasSplash</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="emojiCasa">🏠</string>
+    <string name="emoji">🏠</string>
+    <string name="holaaaaaa">holaaaaaa</string>
+    <string name="fragmento">putoFragmento</string>
+
+</resources>
