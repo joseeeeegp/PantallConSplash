@@ -31,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Lo de Macià para que se coja la hora de la última vez que se abrió la app
         SharedPreferences lastTime = getSharedPreferences(LAST_LAUNCH, MODE_PRIVATE);
         Date now = new Date();
         SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-       // Log.i(TAG, "Se ha abierto ");
         if (lastTime.contains("dateTime") == true) {
 
             String dateTime = lastTime.getString("dateTime", "Default");
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Lo mio para pintar la fecha actual
         Calendar calendarNow = new GregorianCalendar(TimeZone.getTimeZone("Europe/Madrid"));
         int day =calendarNow.get(Calendar.DAY_OF_MONTH);
         int month = calendarNow.get(Calendar.MONTH);
@@ -55,16 +56,34 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, "CONTROL DE INCIIO DE SESIÓN Se ha abierto ahora a las "+ day + "/"+month+"/"+ year+ " a las "+ hora+":" +minutos);
 
 
-
+        //Inicio de la animación del splash
         animatorSet = new AnimatorSet();
         icono = findViewById(R.id.idimagenTrivial);
+        animacion();
+        handler();
 
+
+
+    }
+
+
+    public void activarDespuesSplash() {
+        //startActivity(new Intent(this, DespuesSplash.class));
+        //startActivity(new Intent(this, TrasSplash.class));
+        startActivity(new Intent(this, menuMacia.class));
+    }
+
+
+    public void animacion(){
         animatorRotation = ObjectAnimator.ofFloat(icono, "rotation", 720f);
         animatorRotation.setDuration(animationDuration);
         AnimatorSet animatorSetRotator = new AnimatorSet();
         animatorSetRotator.playTogether(animatorRotation);
         animatorSetRotator.start();
+    }
 
+
+    public void handler(){
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -72,13 +91,5 @@ public class MainActivity extends AppCompatActivity {
                 activarDespuesSplash();
             }
         }, animationDuration);
-
-
     }
-
-    public void activarDespuesSplash() {
-        //startActivity(new Intent(this, DespuesSplash.class));
-        startActivity(new Intent(this, TrasSplash.class));
-    }
-
 }

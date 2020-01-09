@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".menuMacia"></activity>
         <activity
             android:name=".TrasSplash"
-            android:label="@string/title_activity_tras_splash"></activity>
+            android:label="@string/title_activity_tras_splash" />
         <activity android:name=".DespuesSplash" />
         <activity android:name=".MainActivity">
             <intent-filter>
